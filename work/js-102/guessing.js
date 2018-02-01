@@ -36,7 +36,27 @@ while (!won) { // Will loop over block until condition isn't true
 console.log(`Found ${wordInfo.word} in ${history.count} turns`);
 
 // YOU MAY ADD YOUR OWN FUNCTIONS (ONLY FUNCTIONS) BELOW THIS
+function countCommonLetters( guess, word ) {
+    let count = 0;
+    const letterOccurances = {};
 
+    for ( letter of word ) {
+        if( !letterOccurances[letter] ){
+            letterOccurances[letter] = 1;
+            continue;
+        }
+        letterOccurances[letter] += 1;
+    }
+
+    for ( letter of guess ) {
+        if( letterOccurances[letter] > 0){
+            letterOccurances[letter] -= 1;
+            count += 1;
+        }
+    }
+
+    return count;
+}
 // YOU MAY ADD YOUR OWN FUNCTIONS (ONLY FUNCTIONS) ABOVE THIS
 
 function thinkAbout( wordInfo ) {
@@ -45,7 +65,7 @@ function thinkAbout( wordInfo ) {
   // return anything you want, even nothing
 
   // EDIT BELOW THIS
-
+  return;
   // EDIT ABOVE THIS
 }
 
@@ -55,7 +75,23 @@ function pickGuess( wordInfo, history ) {
   // along with any startup info that was stored in history.info
 
   // EDIT BELOW THIS
+  if( history.count === 0 ){
+      return pickWord( wordInfo );
+  }
+  const previousGuess = history.results.pop();
+  //creating a new list to store possible guesses
+  let guessList = []
+  const index = wordInfo.allWords.indexOf(previousGuess);
 
+  // comparing the word with guess
+  // if previousGuess is lessthan the word,
+  // then we should guess higher than our previousGuess and viceVersa.
+  if( previousGuess < wordInfo.word ){
+      guessList = wordInfo.allWords.slice(index+1);
+  }else {
+      guessList = wordInfo.allWords.slice(0, index);
+  }
+  return random(guessList);
   // EDIT ABOVE THIS
 }
 
@@ -65,7 +101,11 @@ function compareLetters( guess, wordInfo ) {
   // You may add info in result beyond what is needed if you wish
 
   // EDIT BELOW THIS
-
+  result.similar = countCommonLetters( guess, wordInfo.word );
+  if( guess === wordInfo.word ){
+      result.won = true;
+  }
+  return result;
   // EDIT ABOVE THIS
 }
 
