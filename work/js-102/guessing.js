@@ -82,7 +82,7 @@ function thinkAbout( wordInfo ) {
   // return anything you want, even nothing
 
   // EDIT BELOW THIS
-  const allLetters = 'ABCDEFGHIZKLMNOPQRSTUVWXYZ'
+  const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   return allLetters;
   // EDIT ABOVE THIS
 }
