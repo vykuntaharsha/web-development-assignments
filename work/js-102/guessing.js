@@ -57,6 +57,23 @@ function countCommonLetters( guess, word ) {
 
     return count;
 }
+
+function countLettersInPosition( guess, word ) {
+    let count = 0;
+    for (let position in word) {
+        if ( word[position] === guess[position] ) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+function buildGuess( wordInfo, history ) {
+    history.info.letterIndex += 1;
+    let guess = history.info.correctLetters;
+    guess += wordInfo.magic[ history.info.letterIndex - 1 ];
+    return guess;
+}
 // YOU MAY ADD YOUR OWN FUNCTIONS (ONLY FUNCTIONS) ABOVE THIS
 
 function thinkAbout( wordInfo ) {
@@ -65,7 +82,8 @@ function thinkAbout( wordInfo ) {
   // return anything you want, even nothing
 
   // EDIT BELOW THIS
-  return;
+  const allLetters = 'ABCDEFGHIZKLMNOPQRSTUVWXYZ'
+  return allLetters;
   // EDIT ABOVE THIS
 }
 
@@ -75,23 +93,26 @@ function pickGuess( wordInfo, history ) {
   // along with any startup info that was stored in history.info
 
   // EDIT BELOW THIS
-  if( history.count === 0 ){
-      return pickWord( wordInfo );
+  if( !history.info ){
+      history.info = {};
+      //maitains the running letterIndex of wordInfo.magic
+      history.info.letterIndex = 0;
+      //maitains the correctLetters of the guess so far
+      history.info.correctLetters = '';
   }
-  const previousGuess = history.results.pop();
-  //creating a new list to store possible guesses
-  let guessList = []
-  const index = wordInfo.allWords.indexOf(previousGuess);
+  //initial guess condition
+  if( history.count === 1 ){
+      return buildGuess( wordInfo, history );
+  }
 
-  // comparing the word with guess
-  // if previousGuess is lessthan the word,
-  // then we should guess higher than our previousGuess and viceVersa.
-  if( previousGuess < wordInfo.word ){
-      guessList = wordInfo.allWords.slice(index+1);
-  }else {
-      guessList = wordInfo.allWords.slice(0, index);
+  const previousResult = history.results[history.count-2];
+  //when the guessed word length and no of inPosition letters matches
+  //we found our correctLetters
+  if( previousResult.guess.length === previousResult.matchingPositions ){
+      history.info.letterIndex = 0;
+      history.info.correctLetters = previousResult.guess;
   }
-  return random(guessList);
+  return buildGuess( wordInfo, history );
   // EDIT ABOVE THIS
 }
 
@@ -101,7 +122,9 @@ function compareLetters( guess, wordInfo ) {
   // You may add info in result beyond what is needed if you wish
 
   // EDIT BELOW THIS
+  result.guess = guess;
   result.similar = countCommonLetters( guess, wordInfo.word );
+  result.matchingPositions = countLettersInPosition( guess, wordInfo.word );
   if( guess === wordInfo.word ){
       result.won = true;
   }
