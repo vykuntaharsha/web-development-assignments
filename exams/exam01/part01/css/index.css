@@ -1,0 +1,132 @@
+body{
+    background-color: lightblue;
+}
+
+header{
+    text-align: center;
+    color: white;
+    font-family: futura;
+    font-size: 24px;
+}
+
+main{
+    margin: auto;
+    background-color: snow;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px 1px darkslategrey;
+    width: 500px;
+    padding: 0.5% 0px;
+    text-align: center;
+}
+
+main > .score{
+    font-style: normal;
+    font-size: 48px;
+    font-family: fantasy;
+    margin: 4px;
+}
+
+#guess-input{
+    text-align: center;
+    font-size: 24px;
+    font-family: monospace;
+    text-transform: uppercase;
+}
+#guess-input:invalid{
+    animation: shake 0.5s;
+}
+#guess-input.hide{
+    display: none;
+}
+#guess-button{
+    color: white;
+    background-color: lightcoral;
+    background-position: top;
+    display: block;
+    text-align: center;
+    margin: 2% auto;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: fantasy;
+    width: 150px;
+}
+
+#guess-button:hover{
+    background-color: indianred;
+}
+
+#guess-button:active {
+  box-shadow: 0 5px black;
+  transform: translateY(4px);
+}
+#guess-button:disabled{
+    background-color: grey;
+}
+.errors{
+    display: none;
+}
+.errors.show{
+    display: block;
+    background-color: crimson;
+    text-align: center;
+    color: white;
+    font-family: futura;
+}
+
+.user-win{
+    display: none;
+}
+.user-win.show{
+    display: block;
+    text-align: center;
+    color: chartreuse;
+    font-family: futura;
+    font-size: 24px;
+}
+section{
+    color: white;
+    text-align: center;
+    font-family: futura;
+}
+.previous-guesses{
+    border: 1px solid cadetblue;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.reset-button{
+    animation: spin-cat-1 2s;
+}
+.reset-button:active{
+    animation: spin-cat-2 2s;
+}
+
+@keyframes spin-cat-1 {
+    50%{
+        transform:rotateY(180deg);
+    }
+}
+@keyframes spin-cat-2 {
+    50%{
+        transform:rotateY(180deg);
+    }
+}
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>part1 | Exam1</title>
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+        <header>
+            <h1> Welcome to guessing game</h2>
+        </header>
+        <main>
+            <h1 class="score"> 0 </h2>
+            <span class="errors">
+                <p> Only 5 letter words from the list are accepted </p>
+            </span>
+            <span class="user-win">
+                <p> Congratulations you guessed it correct</p>
+            </span>
+            <input id="guess-input" type="text" maxlength="5" placeholder="Enter your guess">
+            <button id="guess-button" type="button" disabled> Guess </button>
+        </main>
+        <hr/>
+        <section>
+            <h2> Your previous guesses and respective common letters</h2>
+            <ol class="previous-guesses">
+            </ol>
+        </section>
+        <script type="text/javascript" src="/js/index.js"></script>
+    </body>
+</html>
