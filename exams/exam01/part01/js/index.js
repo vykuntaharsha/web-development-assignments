@@ -1,3 +1,4 @@
+(() =>{
 const wordlist = `
 about other which their there first would these click price
 state email world music after video where books links years
@@ -302,3 +303,4 @@ function resetGame() {
 }
 
 addAddListener();
+})();
