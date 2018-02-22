@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>part2 | Exam1</title>
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+        <header>
+            <h1> Welcome to guessing game</h1>
+        </header>
+        <article class="game">
+            <section class="game-status">
+                <h1> Enter a common 5 letter word for them to guess </h1>
+            </section>
+            <section class="game-start">
+                <input class="player-word"type="text" maxlength="5" placeholder="Enter your word">
+                <button class="begin-button" type="button" disabled> Begin </button>
+            </section>
+            <main class="main hide">
+                <div class="player-input">
+                    <h3>Human</h3>
+                    <input id="player-guess-input" class="player-word" type="text" maxlength="5" placeholder="Enter your guess">
+                    <button class="player-guess-button" type="button" disabled> Guess </button>
+                </div>
+                <div class="computer-input">
+                    <h3>Computer</h3>
+                    <input class="computer-word" type="text" maxlength="5" placeholder="Computer input" disabled>
+                </div>
+            </main>
+        </article>
+        <hr/>
+        <section class="guesses">
+            <div class="guesses player-guesses">
+                <h4> Your previous guesses </h4>
+                <ol class="previous-guesses player-guess-list">
+                    <p> No guesses made</p>
+                </ol>
+            </div>
+            <div class="guesses computer-guesses">
+                <h4> Computer's previous guesses </h4>
+                <ol class="previous-guesses computer-guess-list">
+                    <p> No guesses made</p>
+                </ol>
+            </div>
+
+        </section>
+        <script type="text/javascript" src="/js/index.js"></script>
+    </body>
+</html>
