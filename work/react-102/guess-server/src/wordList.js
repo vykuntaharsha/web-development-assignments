@@ -139,20 +139,21 @@ flour choir blond burst wiley fibre daisy crude bored allah
 fares hoped safer marsh ricky theta stake arbor
 `.split(/ |\n/g).map( word => word.toUpperCase()).filter( word => word );
 
-// mapping the initial set of words to ids
-const wordsWithId = words.map( word => {
-                            return {
-                                id : getUniqueId(),
-                                word : word
-                                };
-                            }).filter(word => word);
+// array to store the set of words with respective ids
+const wordsWithId = [];
 
 function getUniqueId() {
     // returns a unique id to set for the word
-    return 'WORD-' + Math.random().toString(36).substr(2,8).toUpperCase();
+    const uniqueId = 'WORD-ID-' + Math.random().toString(36).substr(2,8).toUpperCase();
+
+    const foundId = wordsWithId.find( word => word.id === uniqueId );
+
+    if( foundId ) return getUniqueId();
+    return uniqueId;
 }
 
 module.exports = {
     words,
-    wordsWithId
+    wordsWithId,
+    getUniqueId
 };
