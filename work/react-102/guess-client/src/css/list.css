@@ -1,0 +1,25 @@
+.previous-guesses{
+    background-color: snow;
+    font-family: futura;
+    border: 1px solid cadetblue;
+    margin: auto;
+    width: 600px;
+    height: 400px;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+.previous-guesses > ul {
+    padding: 0;
+}
+.previous-guesses li{
+    background-color: lightgrey;
+    margin: 10px;
+    padding: 15px 0px;
+    list-style-type: none;
+    box-shadow: 0px 3px 3px 0px lightslategrey;
+}
+
+li:first-child{
+    background-color: lightblue;
+}
