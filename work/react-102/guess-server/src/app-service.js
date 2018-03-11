@@ -34,6 +34,10 @@ app.get('/secretWord', (req, res) => {
         });
     }
 
+    console.log(JSON.stringify({
+        secretWord : secretWord,
+        id : uniqueId
+    }, null, 2));
     res.status(200).json({ id : uniqueId });
 });
 
@@ -57,7 +61,7 @@ app.post('/evaluateGuess', (req, res) => {
     }
 
     if( !isValidGuess(guess) ){
-        res.status(406).send('please provide a valid Guess with 6 letters');
+        res.status(406).send('please provide a valid Guess with 5 letters');
         return;
     }
 
