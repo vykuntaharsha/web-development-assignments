@@ -1,0 +1,52 @@
+body{
+    background-color: lightblue;
+    text-align: center;
+}
+
+header{
+    text-align: center;
+}
+
+button{
+    margin: 10px auto;
+    display: block;
+    width: 200px;
+    height: 30px;
+    background-color: lightgreen;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+h3{
+    color: green;
+}
+
+.game-status{
+    text-transform: uppercase;
+}
+
+.player-holder{
+    border-top: 1px solid;
+}
+
+.player{
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+}
+
+.alfred{
+    border-right: 1px solid;
+}
+
+.secret-word{
+    color: snow;
+}
+
+.previous-guesses{
+    list-style-type: none;
+}
